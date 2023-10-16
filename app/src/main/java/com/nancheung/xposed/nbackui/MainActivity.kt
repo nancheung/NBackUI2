@@ -13,7 +13,6 @@ import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -47,7 +46,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TextFieldDefaults.textFieldColors
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -145,7 +143,6 @@ fun AppScaffold(appInfos: List<AppInfo>,
                     AnimatedVisibility(isSearching) {
                         IconButton(onClick = {
                             isSearching = false
-                            searchText = ""
                             showAppInfos = appInfos
                         }) {
                             Icon(Icons.Filled.ArrowBack, contentDescription = "取消")
@@ -156,7 +153,6 @@ fun AppScaffold(appInfos: List<AppInfo>,
                     AnimatedVisibility(!isSearching) {
                         IconButton(onClick = {
                             isSearching = true
-                            searchText = ""
                         }) {
                             Icon(Icons.Filled.Search, contentDescription = "搜索")
                         }
@@ -173,7 +169,7 @@ fun AppScaffold(appInfos: List<AppInfo>,
                             keyboardOptions = KeyboardOptions.Default.copy(
                                 imeAction = ImeAction.Search
                             ),
-                            colors = TextFieldDefaults.textFieldColors(
+                            colors = TextFieldDefaults.colors(
                                 focusedIndicatorColor = Color.Transparent,
                                 unfocusedIndicatorColor = Color.Transparent
                             ),
@@ -186,8 +182,12 @@ fun AppScaffold(appInfos: List<AppInfo>,
                                 .clip(roundedShape)
                                 .focusRequester(focusRequester)
                                 .onFocusChanged {
-                                    focusRequester.requestFocus()
-                                    softKeyboard?.show()
+                                    // 显示搜索框时的焦点变动
+                                    if (isSearching) {
+                                        searchText = ""
+                                        focusRequester.requestFocus()
+                                        softKeyboard?.show()
+                                    }
                                 }
                         )
                     }
