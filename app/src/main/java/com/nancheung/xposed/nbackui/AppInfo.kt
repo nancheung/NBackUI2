@@ -8,5 +8,6 @@ data class AppInfo(
     val icon: ImageBitmap?,
     val packageSize: Long,
     val dataDir: String,
-    val externalStorageDir: String,
-)
+    val externalStorageDir: String?,
+    val apkDir: String,
+    )

@@ -3,6 +3,8 @@ package com.nancheung.xposed.nbackui
 
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
+import android.media.Image
+import android.provider.MediaStore.Images
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -57,14 +59,16 @@ fun AppInfoCard(
             modifier = Modifier
                 .padding(all = 8.dp)
         ) {
-            Image(
-                bitmap = appInfo.icon!!,
-                contentDescription = "${appInfo.name} icon",
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(Utils.ROUNDED_SHAPE)
-                    .border(1.5.dp, MaterialTheme.colorScheme.tertiary, Utils.ROUNDED_SHAPE)
-            )
+            appInfo.icon?.let {
+                Image(
+                    bitmap = appInfo.icon,
+                    contentDescription = "${appInfo.name} icon",
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(Utils.ROUNDED_SHAPE)
+                        .border(1.5.dp, MaterialTheme.colorScheme.tertiary, Utils.ROUNDED_SHAPE)
+                )
+            }
             Spacer(modifier = Modifier.width(8.dp))
             Column {
                 Text(text = appInfo.name, style = MaterialTheme.typography.titleMedium)
