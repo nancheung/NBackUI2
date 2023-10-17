@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nancheung.xposed.nbackui"
+    namespace = "com.nancheung.xposed.nbackup"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.nancheung.xposed.nbackui"
+        applicationId = "com.nancheung.xposed.nbackup"
         minSdk = 31
         targetSdk = 33
         versionCode = 1

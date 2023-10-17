@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NBackUI"
+        android:theme="@style/Theme.NBackup"
         tools:targetApi="31">
         <meta-data
             android:name="xposedmodule"
@@ -29,14 +29,14 @@
             android:name="xposedminversion"
             android:value="82" />
         <provider
-            android:name="com.nancheung.xposed.nbackui.util.AppContentProvider"
-            android:authorities="com.nancheung.xposed.nback.AppContentProvider"
+            android:name="com.nancheung.xposed.nbackup.util.AppContentProvider"
+            android:authorities="com.nancheung.xposed.nbackup.AppContentProvider"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.NBackUI">
+            android:theme="@style/Theme.NBackup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

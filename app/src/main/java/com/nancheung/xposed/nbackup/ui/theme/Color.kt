@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui.ui.theme
+package com.nancheung.xposed.nbackup.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

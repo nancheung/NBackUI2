@@ -18,6 +18,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NBackUI"
+rootProject.name = "NBackup"
 include(":app")
  

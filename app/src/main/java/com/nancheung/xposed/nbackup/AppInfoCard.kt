@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackup
 
 
 import android.content.res.Configuration
@@ -30,9 +30,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
-import com.nancheung.xposed.nbackui.util.Log
-import com.nancheung.xposed.nbackui.util.Utils
+import com.nancheung.xposed.nbackup.ui.theme.NBackupTheme
+import com.nancheung.xposed.nbackup.util.Log
+import com.nancheung.xposed.nbackup.util.Utils
 import java.text.DecimalFormat
 import kotlin.math.log10
 import kotlin.math.pow
@@ -113,7 +113,7 @@ fun AppCardPreview() {
     val current = LocalContext.current
     val appInfos = Utils.mockAppInfo(current.getDrawable(R.mipmap.ic_launcher)!!)
 
-    NBackUITheme {
+    NBackupTheme {
         Surface {
             LazyColumn() {
                 items(appInfos) { appInfo -> AppInfoCard(appInfo) {} }

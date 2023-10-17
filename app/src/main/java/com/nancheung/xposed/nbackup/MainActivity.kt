@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackup
 
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -30,10 +30,10 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.graphics.drawable.toBitmap
-import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
-import com.nancheung.xposed.nbackui.util.Log
-import com.nancheung.xposed.nbackui.util.SharedPreferencesUtil
-import com.nancheung.xposed.nbackui.util.Utils
+import com.nancheung.xposed.nbackup.ui.theme.NBackupTheme
+import com.nancheung.xposed.nbackup.util.Log
+import com.nancheung.xposed.nbackup.util.SharedPreferencesUtil
+import com.nancheung.xposed.nbackup.util.Utils
 import java.io.File
 import kotlin.streams.toList
 
@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
         SharedPreferencesUtil.init(this)
 
         setContent {
-            NBackUITheme {
+            NBackupTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize()) {
                     AppScaffold(getInstalledApps(packageManager), this)
@@ -156,7 +156,7 @@ fun AppScaffold(
 )
 @Composable
 fun AppMainPreview() {
-    NBackUITheme {
+    NBackupTheme {
         Surface {
             AppScaffold(
                 Utils.mockAppInfo(LocalContext.current.getDrawable(R.mipmap.ic_launcher)!!), null

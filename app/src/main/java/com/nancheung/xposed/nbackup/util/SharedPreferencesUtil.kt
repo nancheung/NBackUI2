@@ -1,13 +1,12 @@
-package com.nancheung.xposed.nbackui.util
+package com.nancheung.xposed.nbackup.util
 
 import android.content.Context
-import de.robv.android.xposed.XSharedPreferences
 
 object SharedPreferencesUtil {
 
     private var applicationContext: Context? = null
 
-    private var packageName = "com.nancheung.xposed.nbackui"
+    private var packageName = "com.nancheung.xposed.nbackup"
     private var prefName = "${packageName}_prefs"
 
     fun init(context: Context) {

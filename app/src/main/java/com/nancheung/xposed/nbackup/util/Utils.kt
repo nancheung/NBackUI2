@@ -1,13 +1,11 @@
-package com.nancheung.xposed.nbackui.util
+package com.nancheung.xposed.nbackup.util
 
-import android.content.Context
 import android.graphics.drawable.Drawable
-import android.widget.Toast
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
-import com.nancheung.xposed.nbackui.AppInfo
+import com.nancheung.xposed.nbackup.AppInfo
 
 class Utils {
     companion object {

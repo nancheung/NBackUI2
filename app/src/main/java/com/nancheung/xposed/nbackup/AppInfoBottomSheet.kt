@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackup
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -26,11 +26,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
-import com.nancheung.xposed.nbackui.util.Log
-import com.nancheung.xposed.nbackui.util.SharedPreferencesUtil
-import com.nancheung.xposed.nbackui.util.Utils
-import kotlinx.coroutines.launch
+import com.nancheung.xposed.nbackup.ui.theme.NBackupTheme
+import com.nancheung.xposed.nbackup.util.Log
+import com.nancheung.xposed.nbackup.util.SharedPreferencesUtil
+import com.nancheung.xposed.nbackup.util.Utils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -125,7 +124,7 @@ fun AppInfoBottomSheetPreview() {
     val appInfo = appInfos[0]
     val appInfo2 = appInfos[2]
 
-    NBackUITheme {
+    NBackupTheme {
         Surface {
             Column {
                 SheetContent(appInfo) {}

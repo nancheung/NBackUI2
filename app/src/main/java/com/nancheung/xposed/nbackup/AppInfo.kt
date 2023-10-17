@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackup
 
 import androidx.compose.ui.graphics.ImageBitmap
 

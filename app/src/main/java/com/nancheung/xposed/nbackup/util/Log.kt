@@ -1,8 +1,7 @@
-package com.nancheung.xposed.nbackui.util
+package com.nancheung.xposed.nbackup.util
 
 import android.content.Context
 import android.widget.Toast
-import androidx.compose.ui.platform.LocalContext
 import de.robv.android.xposed.XposedBridge
 
 object Log {

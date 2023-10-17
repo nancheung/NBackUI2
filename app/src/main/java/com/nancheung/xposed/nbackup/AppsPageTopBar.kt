@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackup
 
 
 import android.content.res.Configuration
@@ -30,8 +30,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
-import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
-import com.nancheung.xposed.nbackui.util.Utils
+import com.nancheung.xposed.nbackup.ui.theme.NBackupTheme
+import com.nancheung.xposed.nbackup.util.Utils
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -106,7 +106,7 @@ fun AppsPageTopBar(
 )
 @Composable
 fun AppsPageTopBarPreview() {
-    NBackUITheme {
+    NBackupTheme {
         Surface {
             Column {
                 AppsPageTopBar(false, "", {}, {}, {})

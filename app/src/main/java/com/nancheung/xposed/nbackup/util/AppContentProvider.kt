@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui.util
+package com.nancheung.xposed.nbackup.util
 
 import android.content.ContentProvider
 import android.content.ContentValues
@@ -13,7 +13,7 @@ class AppContentProvider : ContentProvider() {
         //用于匹配URI，并返回对应的操作编码
         private val sUriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
-        val AUTHORITIES = "com.nancheung.xposed.nback.AppContentProvider"
+        val AUTHORITIES = "com.nancheung.xposed.nbackup.AppContentProvider"
 
         // 定义 URI 编码
         private val GETPACKAGENAME = 1

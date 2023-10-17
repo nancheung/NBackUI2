@@ -1,13 +1,12 @@
-package com.nancheung.xposed.nbackui.hook
+package com.nancheung.xposed.nbackup.hook
 
 import android.app.Activity
 import android.app.AndroidAppHelper
-import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import com.nancheung.xposed.nbackui.util.Log
+import com.nancheung.xposed.nbackup.util.Log
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
@@ -39,7 +38,7 @@ class MethodHook(private val lpparam: XC_LoadPackage.LoadPackageParam) : XC_Meth
         var targetPackageName: String? = ""
         // 在这里使用contentResolver进行操作
         val contentResolver = context.contentResolver
-        val uri = Uri.parse("content://com.nancheung.xposed.nback.AppContentProvider/getPackageName")
+        val uri = Uri.parse("content://com.nancheung.xposed.nbackup.AppContentProvider/getPackageName")
         val cursor = contentResolver.query(uri, null, null, null, null)
         if (cursor != null && cursor.moveToFirst()) {
             // 获取手动配置的包名
