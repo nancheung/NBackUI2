@@ -10,6 +10,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://api.xposed.info/"){
+            mavenContent {
+                includeGroup("de.robv.android.xposed")
+            }
+        }
     }
 }
 

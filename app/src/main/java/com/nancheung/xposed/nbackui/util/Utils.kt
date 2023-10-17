@@ -1,4 +1,4 @@
-package com.nancheung.xposed.nbackui
+package com.nancheung.xposed.nbackui.util
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
+import com.nancheung.xposed.nbackui.AppInfo
 
 class Utils {
     companion object {
@@ -47,13 +48,6 @@ class Utils {
                     "/data/app/~~OHRrsxXSz9nUTJuucvoGew==/com.jdd.motorfans-R1EqH7KgeRQTdVKO_RyPwA==/base.apk"
                 )
             )
-        }
-
-        /**
-         * 弹出toast
-         */
-        fun toast(context: Context, text: String) {
-            Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -2,9 +2,6 @@ package com.nancheung.xposed.nbackui
 
 
 import android.content.res.Configuration
-import android.graphics.drawable.Drawable
-import android.media.Image
-import android.provider.MediaStore.Images
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -30,12 +27,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
 import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
+import com.nancheung.xposed.nbackui.util.Log
+import com.nancheung.xposed.nbackui.util.Utils
 import java.text.DecimalFormat
 import kotlin.math.log10
 import kotlin.math.pow
@@ -85,7 +82,7 @@ fun AppInfoCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Button(
-                    onClick = { Utils.toast(context, "备份中……") },
+                    onClick = { Log.toast("备份中……") },
                     modifier = Modifier
                         .weight(10f)
                         .padding(all = 5.dp)
@@ -93,7 +90,7 @@ fun AppInfoCard(
                     Text(text = "备份")
                 }
                 Button(
-                    onClick = { Utils.toast(context, "恢复中……") },
+                    onClick = { Log.toast("恢复中……") },
                     modifier = Modifier
                         .weight(10f)
                         .padding(all = 5.dp)

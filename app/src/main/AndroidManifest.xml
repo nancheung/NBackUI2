@@ -19,6 +19,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NBackUI"
         tools:targetApi="31">
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="N备份，免root备份数据" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
+        <provider
+            android:name="com.nancheung.xposed.nbackui.util.AppContentProvider"
+            android:authorities="com.nancheung.xposed.nback.AppContentProvider"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

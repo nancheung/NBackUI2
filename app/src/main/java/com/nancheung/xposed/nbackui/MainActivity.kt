@@ -31,6 +31,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.graphics.drawable.toBitmap
 import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
+import com.nancheung.xposed.nbackui.util.Log
+import com.nancheung.xposed.nbackui.util.SharedPreferencesUtil
+import com.nancheung.xposed.nbackui.util.Utils
 import java.io.File
 import kotlin.streams.toList
 
@@ -38,6 +41,9 @@ import kotlin.streams.toList
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.init(this)
+        SharedPreferencesUtil.init(this)
+
         setContent {
             NBackUITheme {
                 // A surface container using the 'background' color from the theme
@@ -127,14 +133,14 @@ fun AppScaffold(
             NavigationBar {
                 NavigationBarItem(
                     selected = true,
-                    onClick = { Utils.toast(context, "APP") },
+                    onClick = { Log.toast("APP") },
                     icon = {
                         Icon(Icons.Filled.Home, contentDescription = "Apps")
                     }
                 )
                 NavigationBarItem(
                     selected = false,
-                    onClick = { Utils.toast(context, "更多") },
+                    onClick = { Log.toast("更多") },
                     icon = { Icon(Icons.Filled.Favorite, contentDescription = "收藏") }
                 )
             }

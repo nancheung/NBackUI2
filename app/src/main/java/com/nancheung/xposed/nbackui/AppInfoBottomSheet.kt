@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -28,6 +27,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nancheung.xposed.nbackui.ui.theme.NBackUITheme
+import com.nancheung.xposed.nbackui.util.Log
+import com.nancheung.xposed.nbackui.util.SharedPreferencesUtil
+import com.nancheung.xposed.nbackui.util.Utils
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,16 +38,16 @@ fun AppInfoBottomSheet(appInfo: AppInfo, onHide: () -> Unit) {
     val scope = rememberCoroutineScope()
     val sheetState = rememberModalBottomSheetState()
 
+    val context = LocalContext.current
+
     ModalBottomSheet(
         onDismissRequest = onHide,
         sheetState = sheetState
     ) {
         SheetContent(appInfo) {
-            scope.launch { sheetState.hide() }.invokeOnCompletion {
-                if (!sheetState.isVisible) {
-                    onHide.invoke()
-                }
-            }
+            val put =
+                SharedPreferencesUtil.put("userSelectedPackageName", appInfo.packageName)
+            Log.toast("写入userSelectedPackageName：${appInfo.packageName}：${put}")
         }
     }
 }
@@ -83,7 +85,7 @@ fun SheetContent(appInfo: AppInfo, onHide: () -> Unit) {
                                 context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                             clipboard.setPrimaryClip(ClipData.newPlainText("Copied Text", text))
 
-                            Utils.toast(context, "已复制")
+                            Log.toast("已复制")
                         }
                     }
 

@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+    compileOnly(libs.xposed)
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
